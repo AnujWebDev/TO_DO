@@ -11,9 +11,9 @@ router.get('/',(req,res)=>{
 
 router.post('/addcontact', addContact);
 
-router.get('/getcontacts',getContacts)
+router.get('/getcontacts',getContacts);
 
-router.put('/:id',updateById)
+router.put('/:id',updateById);
 
 router.delete('/:id',deleteById);
 

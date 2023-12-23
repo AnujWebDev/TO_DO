@@ -1,4 +1,4 @@
-import { Contact } from "../Modals/contact.js";
+import { Contact } from "../modals/contact.js";
 
 export const addContact=(async(req,res)=>{
     // res.json("Add Contact is working...!");
