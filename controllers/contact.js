@@ -50,3 +50,9 @@ export const deleteById=(async(req,res)=>{
     
 });
 
+export const getContactById=(async(req,res)=>{
+    const Id=req.params.id;
+    let contact= await Contact.findById(Id);
+    if(!contact)return res.json({message:"id not exist....!"});
+    res.json({contact});
+})
