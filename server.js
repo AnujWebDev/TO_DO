@@ -3,19 +3,24 @@ import mongoose from "mongoose";
 import bodyparser from "express";
 import contactRouter from "./routes/contact.js";
 import cors from 'cors';
+import { config } from "dotenv";
 
 const app=express();
 app.use(bodyparser.json());
 
+config({
+    path:'.env'
+})
+
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:process.env.Frontend_URL,
     methods:["GET","POST","PUT","DELETE"],
     credentials:true
 }))
 
 app.use('/api',contactRouter);
 
-mongoose.connect("mongodb+srv://anujmishra0811:FSR9jhkuysWN06LV@volcanus.hawaefc.mongodb.net/",{
+mongoose.connect(process.env.Mongo_URL,{
     dbName:'TODO_Program'
 }).then(()=>console.log("MongoDb Connected...!"));
 
